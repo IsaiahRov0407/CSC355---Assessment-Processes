@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1 style = "text-align: center;">Enter Master Schedule Information</h1>
-    <form action="#" method="POST">
+    <form id= "form1" action="#" method="POST">
         <label for="semester">Semester:</label>
         <select id="semester" required>
             <option value="Spring">Spring</option>
@@ -104,7 +104,7 @@
         </div>
 
         <label for="instructor">Instructor:</label>
-        <input type="text" id="instuctor" name="Instructor" required><br><br>
+        <input type="text" id="instructor" name="Instructor" required><br><br>
 
         <label for="major">Focus:</label>
         <select id="major" required>
@@ -121,6 +121,7 @@
         </select><br><br>
 
         <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
     </form>
 
 <script>
@@ -135,6 +136,231 @@
                 }
             });
         });
+    document.getElementById('form1').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form from submitting to a server
+
+        const semester = document.getElementById('semester').value;
+        const class_name = document.getElementById('class_name').value;
+        const class_code = document.getElementById('class_code').value;
+        const CSIT1 = document.getElementById('CSIT-1').value;
+        const CSIT11 = document.getElementById('CSIT-11').value;
+        const CSIT12 = document.getElementById('CSIT-12').value;
+        const CSIT13 = document.getElementById('CSIT-13').value;
+        const CSIT2 = document.getElementById('CSIT-2').value;
+        const CSIT21 = document.getElementById('CSIT-21').value;
+        const CSIT22 = document.getElementById('CSIT-22').value;
+        const CSIT23 = document.getElementById('CSIT-23').value;
+        const CSIT3 = document.getElementById('CSIT-3').value;
+        const CSIT31 = document.getElementById('CSIT-31').value;
+        const CSIT32 = document.getElementById('CSIT-32').value;
+        const CSIT33 = document.getElementById('CSIT-33').value;
+        const CSIT4 = document.getElementById('CSIT-4').value;
+        const CSIT41 = document.getElementById('CSIT-41').value;
+        const CSIT42 = document.getElementById('CSIT-42').value;
+        const CSIT43 = document.getElementById('CSIT-43').value;
+        const CSIT5 = document.getElementById('CSIT-5').value;
+        const CSIT51 = document.getElementById('CSIT-51').value;
+        const CSIT52 = document.getElementById('CSIT-52').value;
+        const CSIT53 = document.getElementById('CSIT-53').value;
+        const CS6 = document.getElementById('CS-6').value;
+        const CS61 = document.getElementById('CS-61').value;
+        const CS62 = document.getElementById('CS-62').value;
+        const IT6 = document.getElementById('IT-6').value;
+        const IT61 = document.getElementById('IT-61').value;
+        const IT62 = document.getElementById('IT-62').value;
+        const IT63 = document.getElementById('IT-63').value;
+        const IT64 = document.getElementById('IT-64').value;
+        const instructor = document.getElementById('instructor').value
+        const major = document.getElementById('major').value
+        const type = document.getElementById('type').value
+
+
+        // Save data in local storage
+        localStorage.setItem('semester', semester);
+        localStorage.setItem('class_name', class_name);
+        localStorage.setItem('class_code', class_code);
+        localStorage.setItem('CSIT-1', CSIT1);
+        localStorage.setItem('CSIT-11', CSIT11);
+        localStorage.setItem('CSIT-12', CSIT12);
+        localStorage.setItem('CSIT-13', CSIT13);
+        localStorage.setItem('CSIT-2', CSIT2);
+        localStorage.setItem('CSIT-21', CSIT21);
+        localStorage.setItem('CSIT-22', CSIT22);
+        localStorage.setItem('CSIT-23', CSIT23);
+        localStorage.setItem('CSIT-3', CSIT3);
+        localStorage.setItem('CSIT-31', CSIT31);
+        localStorage.setItem('CSIT-32', CSIT32);
+        localStorage.setItem('CSIT-33', CSIT33);
+        localStorage.setItem('CSIT-4', CSIT4);
+        localStorage.setItem('CSIT-41', CSIT41);
+        localStorage.setItem('CSIT-42', CSIT42);
+        localStorage.setItem('CSIT-43', CSIT43);
+        localStorage.setItem('CSIT-5', CSIT5);
+        localStorage.setItem('CSIT-51', CSIT51);
+        localStorage.setItem('CSIT-52', CSIT52);
+        localStorage.setItem('CSIT-53', CSIT53);
+        localStorage.setItem('CS-6', CS6);
+        localStorage.setItem('CS-61', CS61);
+        localStorage.setItem('CS-62', CS62);
+        localStorage.setItem('IT-6', IT6);
+        localStorage.setItem('IT-61', IT61);
+        localStorage.setItem('IT-62', IT62);
+        localStorage.setItem('IT-63', IT63);
+        localStorage.setItem('IT-64', IT64);
+        localStorage.setItem('instructor', instructor);
+        localStorage.setItem('major', major);
+        localStorage.setItem('type', type);
+
+        alert('Information saved!');
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check and retrieve data from Local Storage
+        const savedSemester = localStorage.getItem('semester');
+        const savedClassName = localStorage.getItem('class_name');
+        const savedClassCode = localStorage.getItem('class_code');
+        const  savedCSIT1= localStorage.getItem('CSIT-1');
+        const  savedCSIT11= localStorage.getItem('CSIT-11');
+        const  savedCSIT12= localStorage.getItem('CSIT-12');
+        const  savedCSIT13= localStorage.getItem('CSIT-13');
+        const  savedCSIT2= localStorage.getItem('CSIT-2');
+        const  savedCSIT21= localStorage.getItem('CSIT-21');
+        const  savedCSIT22= localStorage.getItem('CSIT-22');
+        const  savedCSIT23= localStorage.getItem('CSIT-23');
+        const  savedCSIT3= localStorage.getItem('CSIT-3');
+        const  savedCSIT31= localStorage.getItem('CSIT-31');
+        const  savedCSIT32= localStorage.getItem('CSIT-32');
+        const  savedCSIT33= localStorage.getItem('CSIT-33');
+        const  savedCSIT4= localStorage.getItem('CSIT-4');
+        const  savedCSIT41= localStorage.getItem('CSIT-41');
+        const  savedCSIT42= localStorage.getItem('CSIT-42');
+        const  savedCSIT43= localStorage.getItem('CSIT-43');
+        const  savedCSIT5= localStorage.getItem('CSIT-5');
+        const  savedCSIT51= localStorage.getItem('CSIT-51');
+        const  savedCSIT52= localStorage.getItem('CSIT-52');
+        const  savedCSIT53= localStorage.getItem('CSIT-53');
+        const  savedCS6= localStorage.getItem('CS-6');
+        const  savedCS61= localStorage.getItem('CS-61');
+        const  savedCS62= localStorage.getItem('CS-62');
+        const  savedIT6= localStorage.getItem('IT-6');
+        const  savedIT61= localStorage.getItem('IT-61');
+        const  savedIT62= localStorage.getItem('IT-62');
+        const  savedIT63= localStorage.getItem('IT-63');
+        const  savedIT64= localStorage.getItem('IT-64');
+        const savedInstructor = localStorage.getItem('instructor');
+        const savedMajor = localStorage.getItem('major');
+        const savedType = localStorage.getItem('type');
+        
+
+        if (savedSemester) {
+            document.getElementById('semester').value = savedSemester;
+        }
+        if (savedClassName) {
+            document.getElementById('class_name').value = savedClassName;
+        }
+        if (savedClassCode) {
+            document.getElementById('class_code').value = savedClassCode;
+        }
+        if (savedCSIT1) {
+            document.getElementById('CSIT-1').value = savedCSIT1;
+        }
+        if (savedCSIT11) {
+            document.getElementById('CSIT-11').value = savedCSIT11;
+        }
+        if (savedCSIT12) {
+            document.getElementById('CSIT-12').value = savedCSIT12;
+        }
+        if (savedCSIT13) {
+            document.getElementById('CSIT-13').value = savedCSIT13;
+        }
+        if (savedCSIT2) {
+            document.getElementById('CSIT-2').value = savedCSIT2;
+        }
+        if (savedCSIT21) {
+            document.getElementById('CSIT-21').value = savedCSIT21;
+        }
+        if (savedCSIT22) {
+            document.getElementById('CSIT-22').value = savedCSIT22;
+        }
+        if (savedCSIT23) {
+            document.getElementById('CSIT-23').value = savedCSIT23;
+        }
+        if (savedCSIT3) {
+            document.getElementById('CSIT-3').value = savedCSIT3;
+        }
+        if (savedCSIT31) {
+            document.getElementById('CSIT-31').value = savedCSIT31;
+        }
+        if (savedCSIT32) {
+            document.getElementById('CSIT-32').value = savedCSIT32;
+        }
+        if (savedCSIT33) {
+            document.getElementById('CSIT-33').value = savedCSIT33;
+        }
+        if (savedCSIT4) {
+            document.getElementById('CSIT-4').value = savedCSIT4;
+        }
+        if (savedCSIT41) {
+            document.getElementById('CSIT-41').value = savedCSIT41;
+        }
+        if (savedCSIT42) {
+            document.getElementById('CSIT-42').value = savedCSIT42;
+        }
+        if (savedCSIT43) {
+            document.getElementById('CSIT-43').value = savedCSIT43;
+        }
+        if (savedCSIT5) {
+            document.getElementById('CSIT-5').value = savedCSIT5;
+        }
+        if (savedCSIT51) {
+            document.getElementById('CSIT-51').value = savedCSIT51;
+        }
+        if (savedCSIT52) {
+            document.getElementById('CSIT-52').value = savedCSIT52;
+        }
+        if (savedCSIT53) {
+            document.getElementById('CSIT-53').value = savedCSIT53;
+        }
+        if (savedCS6) {
+            document.getElementById('CS-6').value = savedCS6;
+        }
+        if (savedCS61) {
+            document.getElementById('CS-61').value = savedCS61;
+        }
+        if (savedCS62) {
+            document.getElementById('CS-62').value = savedCS62;
+        }
+        if (savedIT6) {
+            document.getElementById('IT-6').value = savedIT6;
+        }
+        if (savedIT61) {
+            document.getElementById('IT-61').value = savedIT61;
+        }
+        if (savedIT62) {
+            document.getElementById('IT-62').value = savedIT62;
+        }
+        if (savedIT63) {
+            document.getElementById('IT-63').value = savedIT63;
+        }
+        if (savedIT64) {
+            document.getElementById('IT-64').value = savedIT64;
+        }
+        if (savedInstructor) {
+            document.getElementById('instructor').value = savedInstructor;
+        }
+        if (savedMajor) {
+            document.getElementById('major').value = savedMajor;
+        }
+        if (savedType) {
+            document.getElementById('type').value = savedType;
+        }
+    });
+
+    document.getElementById('form1').addEventListener('reset', function() {
+        if (confirm('Are you sure you want to clear all stored data?')) {
+            localStorage.clear();
+            alert('Local Storage cleared.');
+        }
+    });
 </script>
 
 
