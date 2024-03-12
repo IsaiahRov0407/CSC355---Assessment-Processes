@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Schedule</title>
+<style>
+    .sub-checkbox {
+            margin-left: 20px;
+        }
+</style>
+</head>
+<body>
+    <h1 style = "text-align: center;">Enter Master Schedule Information</h1>
+    <form action="#" method="POST">
+        <label for="semester">Semester:</label>
+        <select id="semester" required>
+            <option value="Spring">Spring</option>
+            <option value="Fall">Fall</option>
+        </select><br><br>
+
+        <label for="class_name">Class Name:</label>
+        <input type="text" id="class_name" name="class_name" required><br><br>
+
+        <label for="class_code">Class Code:</label>
+        <input type="text" id="class_code" name="class_code" required><br><br>
+
+        <label for="Performance Indicators">Performance Indicators:</label><br>
+        <input type="checkbox" id="CSIT-1" name="Performance_Indicator" value="CSIT-1">
+        <label for="CSIT-1">CSIT-1</label><br>
+        <div id="CSIT-1SubCheckboxes" class="sub-checkbox" style="display:none;">
+            <input type="checkbox" id="CSIT-11" name="CSIT1" value="CSIT-11">
+            <label for="CSIT-11">CSIT-11</label><br>
+            <input type="checkbox" id="CSIT-12" name="CSIT1" value="CSIT-12">
+            <label for="CSIT-12">CSIT-12</label><br>
+            <input type="checkbox" id="CSIT-13" name="CSIT1" value="CSIT-13">
+            <label for="CSIT-13">CSIT-13</label><br>
+        </div>
+
+        <input type="checkbox" id="CSIT-2" name="Performance_Indicator" value="CSIT-2">
+        <label for="CSIT-2">CSIT-2</label><br>
+        <div id="CSIT-2SubCheckboxes" class="sub-checkbox" style="display:none;">
+            <input type="checkbox" id="CSIT-21" name="CSIT2" value="CSIT-21">
+            <label for="CSIT-21">CSIT-21</label><br>
+            <input type="checkbox" id="CSIT-22" name="CSIT2" value="CSIT-22">
+            <label for="CSIT-22">CSIT-22</label><br>
+            <input type="checkbox" id="CSIT-23" name="CSIT2" value="CSIT-23">
+            <label for="CSIT-23">CSIT-23</label><br>
+        </div>
+
+        <input type="checkbox" id="CSIT-3" name="Performance_Indicator" value="CSIT-3">
+        <label for="CSIT-3">CSIT-3</label><br>
+        <div id="CSIT-3SubCheckboxes" class="sub-checkbox" style="display:none;">
+            <input type="checkbox" id="CSIT-31" name="CSIT3" value="CSIT-31">
+            <label for="CSIT-31">CSIT-31</label><br>
+            <input type="checkbox" id="CSIT-32" name="CSIT3" value="CSIT-32">
+            <label for="CSIT-32">CSIT-32</label><br>
+            <input type="checkbox" id="CSIT-33" name="CSIT3" value="CSIT-33">
+            <label for="CSIT-33">CSIT-33</label><br>
+        </div>
+
+        <input type="checkbox" id="CSIT-4" name="Performance_Indicator" value="CSIT-4">
+        <label for="CSIT-4">CSIT-4</label><br>
+        <div id="CSIT-4SubCheckboxes" class="sub-checkbox" style="display:none;">
+            <input type="checkbox" id="CSIT-41" name="CSIT4" value="CSIT-41">
+            <label for="CSIT-41">CSIT-41</label><br>
+            <input type="checkbox" id="CSIT-42" name="CSIT4" value="CSIT-42">
+            <label for="CSIT-42">CSIT-42</label><br>
+            <input type="checkbox" id="CSIT-43" name="CSIT4" value="CSIT-43">
+            <label for="CSIT-43">CSIT-43</label><br>
+        </div>
+
+        <input type="checkbox" id="CSIT-5" name="Performance_Indicator" value="CSIT-5">
+        <label for="CSIT-5">CSIT-5</label><br>
+        <div id="CSIT-5SubCheckboxes" class="sub-checkbox" style="display:none;">
+            <input type="checkbox" id="CSIT-51" name="CSIT5" value="CSIT-51">
+            <label for="CSIT-51">CSIT-51</label><br>
+            <input type="checkbox" id="CSIT-52" name="CSIT5" value="CSIT-52">
+            <label for="CSIT-52">CSIT-52</label><br>
+            <input type="checkbox" id="CSIT-53" name="CSIT5" value="CSIT-53">
+            <label for="CSIT-53">CSIT-53</label><br>
+        </div>
+
+        <input type="checkbox" id="CS-6" name="Performance_Indicator" value="CS-6">
+        <label for="CS-6">CS-6</label><br>
+        <div id="CS-6SubCheckboxes" class="sub-checkbox" style="display:none;">
+            <input type="checkbox" id="CS-61" name="CSIT6" value="CSIT-61">
+            <label for="CS-61">CS-61</label><br>
+            <input type="checkbox" id="CS-62" name="CS6" value="CS-62">
+            <label for="CS-62">CS-62</label><br>
+        </div>
+
+        <input type="checkbox" id="IT-6" name="Performance_Indicator" value="IT-6">
+        <label for="IT-6">IT-6</label><br>
+        <div id="IT-6SubCheckboxes" class="sub-checkbox" style="display:none;">
+            <input type="checkbox" id="IT-61" name="IT6" value="IT-61">
+            <label for="IT-61">IT-61</label><br>
+            <input type="checkbox" id="IT-62" name="IT6" value="IT-62">
+            <label for="IT-62">IT-62</label><br>
+            <input type="checkbox" id="IT-63" name="IT6" value="IT-63">
+            <label for="IT-63">IT-63</label><br>
+            <input type="checkbox" id="IT-64" name="IT6" value="IT-64">
+            <label for="IT-64">IT-64</label><br><br>
+        </div>
+
+        <label for="instructor">Instructor:</label>
+        <input type="text" id="instuctor" name="Instructor" required><br><br>
+
+        <label for="major">Focus:</label>
+        <select id="major" required>
+            <option value="Computer_Science">Computer Science</option>
+            <option value="Information_Technology">Information Technology</option>
+            <option value="Both">Both</option>
+        </select><br><br>
+
+        <label for="type">Type of Assessment:</label>
+        <select id="type" required>
+            <option value="formative">Formative</option>
+            <option value="sumative">Sumative</option>
+            <option value="both">Both</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+<script>
+     document.querySelectorAll('input[name="Performance_Indicator"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var subCheckboxesId = this.id + "SubCheckboxes";
+                var subCheckboxes = document.getElementById(subCheckboxesId);
+                if (this.checked) {
+                    subCheckboxes.style.display = "block";
+                } else {
+                    subCheckboxes.style.display = "none";
+                }
+            });
+        });
+</script>
+
+
+</body>
