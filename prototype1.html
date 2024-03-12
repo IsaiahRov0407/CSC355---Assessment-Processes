@@ -50,15 +50,12 @@
     <label for="instructor">Instructor:</label>
     <input type="text" id="instructor" required><br><br>
 
-	<label for="example">Instructor:</label>
-    <input type="text" id="example" required><br><br>
-
     <label for="numStudents">Number of Students:</label>
     <input type="number" id="numStudents" min="1" required><br><br>
 
     <button id = "button1" type="button" onclick="addStudents()">Add Students</button>
 	<button id = "button2" type="button" onclick="removeStudents()" style= "display: none;">Remove Students</button>
-	<button id = "button3" type="button" onclick="dumpData()">Dump Data</button>
+	<button id = "button3" type="button" onclick="deleteData()">Delete Data</button>
 </form>
 
 <table id="studentsTable">
@@ -82,6 +79,8 @@ function addStudents() {
   }
 }
 
+
+
 function addStudentRow(i) {
   var table = document.getElementById("studentsTable");
   var row = table.insertRow(-1);
@@ -96,19 +95,20 @@ function addStudentRow(i) {
   var cell9 = row.insertCell(8);
   var cell10 = row.insertCell(9);
   var cell11 = row.insertCell(10);
-  //cell1.innerHTML = "<input type='text' placeholder='Student Name'>";
-  cell1.innerHTML = i+1;
+
+  cell1.innerHTML = i + 1;
   cell2.innerHTML = "<input type='text' placeholder='Major'>";
-  cell3.innerHTML = "<input type='text' placeholder='CSIT-11'>";
-  cell4.innerHTML = "<input type='text' placeholder='CSIT-12'>";
-  cell5.innerHTML = "<input type='text' placeholder='CSIT-13'>";
-  cell6.innerHTML = "<input type='text' placeholder='CSIT-21'>";
-  cell7.innerHTML = "<input type='text' placeholder='CSIT-22'>";
-  cell8.innerHTML = "<input type='text' placeholder='CSIT-23'>";
-  cell9.innerHTML = "<input type='text' placeholder='CSIT-31'>";
-  cell10.innerHTML = "<input type='text' placeholder='CSIT-32'>";
-  cell11.innerHTML = "<input type='text' placeholder='CSIT-33'>";
+  cell3.innerHTML = "<div><b>CSIT-11</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
+  cell4.innerHTML = "<div><b>CSIT-12</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
+  cell5.innerHTML = "<div><b>CSIT-13</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
+  cell6.innerHTML = "<div><b>CSIT-21</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
+  cell7.innerHTML = "<div><b>CSIT-22</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
+  cell8.innerHTML = "<div><b>CSIT-23</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
+  cell9.innerHTML = "<div><b>CSIT-31</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
+  cell10.innerHTML = "<div><b>CSIT-32</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
+  cell11.innerHTML = "<div><b>CSIT-33</b></div><select><option value='E'>E (exemplary)</option><option value='S'>S (satisfactory)</option><option value='D'>D (developing)</option><option value='U'>U (unsatisfactory)</option></select>";
 }
+
 
 function removeStudents() {
   document.getElementById("button1").style.display = "initial";
@@ -122,7 +122,7 @@ function removeStudents() {
   }
 }
 
-function dumpData() {
+function deleteData() {
 	// Confirmation popup
 	var confirmation = confirm("Are you sure you want to delete all data?");
 	// If user confirms
@@ -146,7 +146,6 @@ function dumpData() {
         return;
 			}
 }
-	
 
 </script>
 
