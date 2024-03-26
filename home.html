@@ -17,6 +17,9 @@
             padding: 10px 20px;
             text-align: center;
         }
+		.container {
+			text-align: center;
+		}
         nav {
             background-color: #f4f4f4;
             padding: 10px;
@@ -35,13 +38,16 @@
         }
 		
 		 .grid-container {
-            margin: 20px auto;
-            border-collapse: collapse;
+			display: grid;
+            grid-template-columns: repeat(5, 60px);
+			grid-template-rows: repeat(8, 60px);
+			gap: 5px;
+			margin: 20px auto;
         }
 
         .grid-item {
             border: 1px solid #ccc;
-            width: 50px;
+            width: 70px;
             height: 50px;
             text-align: center;
         }
@@ -52,7 +58,7 @@
         <a href="https://unixweb.kutztown.edu/~dclea255/Prototype1.html" target="_blank">Enter/Edit Evaluation</a>
     </nav>
 
-    <table class="grid-container" id="gridContainer"></table>
+    <div class="grid-container" id="gridContainer"></div>
 
 <script>
         document.addEventListener("DOMContentLoaded", function () {
