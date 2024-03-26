@@ -7,72 +7,90 @@
     <title>Grid Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
+
+        .header {
             text-align: center;
+            margin-bottom: 20px;
         }
-		.container {
-			text-align: center;
-		}
-        nav {
-            background-color: #f4f4f4;
-            padding: 10px;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 100px);
+            grid-template-rows: repeat(5, 100px);
+            gap: 10px;
             text-align: center;
-        }
-        nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #333;
-            padding: 5px 10px;
-            border-radius: 5px;
-            background-color: #ddd;
-        }
-        nav a:hover {
-            background-color: #bbb;
-        }
-		
-		 .grid-container {
-			display: grid;
-            grid-template-columns: repeat(5, 60px);
-			grid-template-rows: repeat(8, 60px);
-			gap: 5px;
-			margin: 20px auto;
         }
 
         .grid-item {
-            border: 1px solid #ccc;
-            width: 70px;
-            height: 50px;
+            background-color: #ccc;
+            border: 1px solid #999;
             text-align: center;
+            line-height: 100px;
         }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+        background-color: #111;
+        }
+
+        .active {
+        background-color: #04AA6D;
+        }
+
     </style>
 </head>
-    <nav>
-        <a href="#">Home</a>
-        <a href="https://unixweb.kutztown.edu/~dclea255/Prototype1.html" target="_blank">Enter/Edit Evaluation</a>
-    </nav>
+
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="https://unixweb.kutztown.edu/~dclea255/Prototype1.html" target="_blank">Enter/Edit Evaluation</a></li>
+            <li><a href="#">Performance Indicator Descriptions</a></li>
+            <li><a href="https://unixweb.kutztown.edu/~dclea255/instructions.html">Instructions</a></li>
+            <li style= "float: right;"><a href="#">Login</a></li>
+        </ul>
+    </div>
 
     <div class="grid-container" id="gridContainer"></div>
+</body>
 
 <script>
         document.addEventListener("DOMContentLoaded", function () {
             var gridContainer = document.getElementById("gridContainer");
 
             // Create a 5x5 grid dynamically
-            for (var i = 0; i < 5; i++) {
-                var row = document.createElement("tr");
-                for (var j = 0; j < 5; j++) {
-                    var cell = document.createElement("td");
-                    cell.classList.add("grid-item");
-                    row.appendChild(cell);
-                }
-                gridContainer.appendChild(row);
+            for (var i = 1; i <= 25; i++) {
+                var gridItem = document.createElement("div");
+                gridItem.classList.add("grid-item");
+                gridContainer.appendChild(gridItem);
             }
         });
     </script>
