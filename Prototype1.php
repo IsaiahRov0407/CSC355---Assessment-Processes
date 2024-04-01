@@ -7,12 +7,12 @@ catch (Exception $exc){
     echo 'Exception: Cannot connect to the database: ', $exc->getMessage(), "\n";
 }
 
-$query = "SELECT * FROM COURSES";
+$query = "SELECT * FROM COURSES ORDER BY COURSEID";
 $result = $db->query($query);
 
 $courseCodes = [];
 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-    $courseCodes[] = $row['TEXT'];
+    $courseCodes[] = $row['COURSEID'];
 }
 
 function generateCourseIDDropdown($name, $options) {
@@ -25,7 +25,7 @@ function generateCourseIDDropdown($name, $options) {
 }
 
 
-$profquery = "SELECT * FROM PROFESSORS";
+$profquery = "SELECT * FROM PROFESSORS ORDER BY NAME";
 $profresult = $db->query($profquery);
 
 $profName = [];
