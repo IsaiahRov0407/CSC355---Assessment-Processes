@@ -11,18 +11,21 @@ $query = "SELECT * FROM COURSES ORDER BY COURSEID";
 $result = $db->query($query);
 
 $courseCodes = [];
+$courseName = [];
 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
     $courseCodes[] = $row['COURSEID'];
+    $courseName[] = $row['NAME'];
 }
 
 function generateCourseIDDropdown($name, $options) {
-    $html = "<select name='$name'>";
+    $html = "<select name='$name' id = '$name' onchange='updateCourseName()'>";
     foreach ($options as $option) {
         $html .= "<option value='$option'>$option</option>";
     }
     $html .= "</select>";
     return $html;
 }
+
 
 
 $profquery = "SELECT * FROM PROFESSORS ORDER BY NAME";
@@ -117,7 +120,7 @@ function generateAssessmentDropdown($name, $options) {
     <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?><br></br>
 
     <label for="courseName">Course Name:</label>
-    <input type="text" id="courseName" required><br><br>
+    <input type="text" id="courseName" required readonly><br><br>
 
     <label for="courseSection">Course Section:</label>
     <input type="text" id="courseSection" required><br><br>
@@ -155,6 +158,7 @@ function generateAssessmentDropdown($name, $options) {
   </table>
 </div>
 <script>
+
 function addStudents() {
   document.getElementById("button1").style.display = "none";
   document.getElementById("button2").style.display = "initial";	
@@ -165,6 +169,22 @@ function addStudents() {
   }
 }
 
+function updateCourseName() {
+    var courseCodeDropdown = document.getElementById('courseCode');
+    var courseNameInput = document.getElementById('courseName');
+    var selectedCourseCode = courseCodeDropdown.value;
+
+    // Fetch the index of the selected course code in the courseCodes array
+    var index = <?php echo json_encode($courseCodes); ?>.indexOf(selectedCourseCode);
+
+    // If the index is found, set the value of the course name input field to the corresponding course name
+    if (index !== -1) {
+        var courseNames = <?php echo json_encode($courseName); ?>;
+        courseNameInput.value = courseNames[index];
+    } else {
+        courseNameInput.value = ''; // Reset the input field if the selected course code is not found
+    }
+}
 
 function addStudentRow(i) {
   var table = document.getElementById("studentsTable");
