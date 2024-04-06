@@ -7,6 +7,7 @@ catch (Exception $exc){
     echo 'Exception: Cannot connect to the database: ', $exc->getMessage(), "\n";
 }
 
+//query to get course ids and course names from the database to display them on the webpage
 $query = "SELECT * FROM COURSES ORDER BY COURSEID";
 $result = $db->query($query);
 
@@ -27,7 +28,7 @@ function generateCourseIDDropdown($name, $options) {
 }
 
 
-
+//query to get professor names from the database to display them on the webpage
 $profquery = "SELECT * FROM PROFESSORS ORDER BY NAME";
 $profresult = $db->query($profquery);
 
@@ -45,7 +46,7 @@ function generateProfNameDropdown($name, $options) {
     return $html;
 }
 
-
+//query to get semsters from the database to display them on the webpage
 $semquery = "SELECT * FROM SEMESTERS";
 $semresult = $db->query($semquery);
 
@@ -63,6 +64,7 @@ function generateSemesterDropdown($name, $options) {
     return $html;
 }
 
+//query to get the assessment focuses from the database to display them on the webpage
 $assessmentquery = "SELECT * FROM FOCUSES";
 $assessmentresult = $db->query($assessmentquery);
 
@@ -79,6 +81,26 @@ function generateAssessmentDropdown($name, $options) {
     $html .= "</select>";
     return $html;
 }
+
+//query to get main objectives from database
+$performanceObjectiveQuery = "SELECT name FROM AssessmentObj";
+$performanceObjectiveResult = $db->query($performanceObjectiveQuery);
+
+$performanceObjective = [];
+while ($row = $performanceObjectiveResult->fetchArray()){
+    $performanceObjective[] = $row["name"];
+}
+
+function generateAssessmentObjective($name, $options) {
+  $html = "";
+    foreach ($options as $option) {
+      $html .= "<input type='checkbox' name='{$name}[]' value='{$option}' id='{$option}'>";
+      $html .= "<label for='{$option}'>{$option}</label><br>";
+    }
+    return $html;
+}
+  
+
 ?>
 
 <!DOCTYPE html>
@@ -109,6 +131,9 @@ function generateAssessmentDropdown($name, $options) {
 		overflow-x: auto;
 		margin: 0 auto;
 	}
+  .sub-checkbox {
+    margin-left: 20px;
+  }
 </style>
 </head>
 <body>
@@ -120,7 +145,7 @@ function generateAssessmentDropdown($name, $options) {
     <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?><br></br>
 
     <label for="courseName">Course Name:</label>
-    <input type="text" id="courseName" required readonly><br><br>
+    <input type="text" id="courseName" required readonly size="45"><br><br>
 
     <label for="courseSection">Course Section:</label>
     <input type="text" id="courseSection" required><br><br>
@@ -133,6 +158,9 @@ function generateAssessmentDropdown($name, $options) {
 
     <label for="type">Type of Assessment:</label>
     <?php echo generateAssessmentDropdown('Assessment', $assessmentName);?><br></br>
+
+    <label for="Performance Indicators">Performance Indicators:</label><br>
+         <?php echo generateAssessmentObjective("objective", $performanceObjective)?>
 
     <label for="numStudents">Number of Students:</label>
     <input type="number" id="numStudents" min="1" required><br><br>
@@ -289,6 +317,18 @@ function deleteData() {
 			}
 }
 
+document.querySelectorAll('input[name="Performance_Indicator"]').forEach(function(checkbox) {
+              checkbox.addEventListener('change', function() {
+                var subCheckboxesId = this.id + "SubCheckboxes";
+                var subCheckboxes = document.getElementById(subCheckboxesId);
+                if (this.checked) {
+                    subCheckboxes.style.display = "block";
+                } 
+                else {
+                    subCheckboxes.style.display = "none";
+                }
+            });
+        });
 </script>
 
 </body>
