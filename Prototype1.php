@@ -140,15 +140,15 @@ function generateAssessmentObjective($name, $options) {
 
 <h2></h2>
 
-<form id="courseForm">
+<form id="courseForm" method="POST" action="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Saving.php">
     <label for="courseCode">Course Code:</label>
     <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?><br></br>
 
     <label for="courseName">Course Name:</label>
-    <input type="text" id="courseName" required readonly size="45"><br><br>
+    <input type="text" id="courseName" name="courseName" required readonly size="45"><br><br>
 
     <label for="courseSection">Course Section:</label>
-    <input type="text" id="courseSection" required><br><br>
+    <input type="text" id="courseSection" name="courseSection"required><br><br>
 
     <label for="semester">Semester:</label>
     <?php echo generateSemesterDropdown('Semester', $semName);?><br><br>
@@ -167,35 +167,49 @@ function generateAssessmentObjective($name, $options) {
 
     <button id = "button1" type="button" onclick="addStudents()">Add Students</button>
 	<button id = "button2" type="button" onclick="removeStudents()" style= "display: none;">Remove Students</button>
-	<button id = "button3" type="button" onclick="deleteData()">Delete Data</button>
+	<button>Save</button>
+  <button type="submit">Submit</button>
 </form>
 
 </div class="table-container">
   <table id="studentsTable">
-    <tr>
+    <tr id="columnHeaders" style="display: none;">
       <th>Student Number</th>
       <th>Major</th>
-      <th colspan="3">CSIT-1</th>
-	  <th colspan="3">CSIT-2</th>
-	  <th colspan="3">CSIT-3</th>
-	  <th colspan="3">CSIT-4</th>
-	  <th colspan="3">CSIT-5</th>
-	  <th colspan="2">CS-6</th>
-	  <th colspan="4">IT-6</th>
+      <th>Student Evaluation</th>
     </tr>
   </table>
 </div>
 <script>
-
 function addStudents() {
-  document.getElementById("button1").style.display = "none";
-  document.getElementById("button2").style.display = "initial";	
+   document.getElementById("button1").style.display = "none";
+  document.getElementById("button2").style.display = "initial";
+  document.getElementById("columnHeaders").style.display = "table-row";	
   var numStudentsInput = document.getElementById("numStudents");
   var numStudents = parseInt(numStudentsInput.value);
   for (var i = 0; i < numStudents; i++) {
     addStudentRow(i);
   }
 }
+
+
+function addStudentRow(i) {
+  var table = document.getElementById("studentsTable");
+  var row = table.insertRow(-1);
+
+  row.insertCell(0).innerHTML = i + 1;
+  row.insertCell(1).innerHTML = "<input type='text' placeholder='Major'>";
+  var selectOptions = ["E (exemplary)", "S (satisfactory)", "D (developing)", "U (unsatisfactory)"];
+  var selectElement = document.createElement("select");
+  for (var j = 0; j < selectOptions.length; j++) {
+    var option = document.createElement("option");
+    option.value = selectOptions[j];
+    option.text = selectOptions[j];
+    selectElement.appendChild(option);
+  }
+  row.insertCell(2).appendChild(selectElement);
+}
+
 
 function updateCourseName() {
     var courseCodeDropdown = document.getElementById('courseCode');
@@ -214,7 +228,7 @@ function updateCourseName() {
     }
 }
 
-function addStudentRow(i) {
+/*function addStudentRow(i) {
   var table = document.getElementById("studentsTable");
   var row = table.insertRow(-1);
 
@@ -282,12 +296,13 @@ for (var j = 2; j < 17; j++) {
     "<option value='U'>U (unsatisfactory)</option>" +
     "</select>";
 
-}
+}*/
 
 
 function removeStudents() {
   document.getElementById("button1").style.display = "initial";
   document.getElementById("button2").style.display = "none";
+  document.getElementById("studentsTable").style.display = "none";
   var table = document.getElementById("studentsTable");
   var rowCount = table.rows.length;
 
