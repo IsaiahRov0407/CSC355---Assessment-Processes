@@ -19,10 +19,19 @@ catch (Exception $exc){
     echo 'Exception: Cannot connect to the database: ', $exc->getMessage(), "\n";
 }
 
-$sql = "INSERT INTO EVAL (Instructor, CourseCode, Semester, Assessment, CourseName, CourseSection) 
-        VALUES ('$professor', '$courseCode', '$semester', '$assessment', '$courseName', '$courseSection')";
+$stmt = $db->prepare("INSERT INTO EVAL (Instructor, CourseCode, Semester, Assessment, CourseName, CourseSection) VALUES (:professor, :courseCode, :semester, :assessment, :courseName, :courseSection)");
+$stmt->bindParam(':professor', $professor);
+$stmt->bindParam(':courseCode', $courseCode);
+$stmt->bindParam(':semester', $semester);
+$stmt->bindParam(':assessment', $assessment);
+$stmt->bindParam(':courseName', $courseName);
+$stmt->bindParam(':courseSection', $courseSection);
 
-$result = $db->exec($sql);
+//$sql = "INSERT INTO EVAL (Instructor, CourseCode, Semester, Assessment, CourseName, CourseSection) 
+        //VALUES ('$professor', '$courseCode', '$semester', '$assessment', '$courseName', '$courseSection')";
+
+//$result = $db->exec($sql);
+$result = $db->exec($stmt);
 if (($result !== false)) {
     echo "Data Saved Successfully";
     }

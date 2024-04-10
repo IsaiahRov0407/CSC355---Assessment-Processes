@@ -8,8 +8,8 @@ catch (Exception $exc){
 }
 
 //query to get course ids and course names from the database to display them on the webpage
-$query = "SELECT * FROM COURSES ORDER BY COURSEID";
-$result = $db->query($query);
+$query = $db->prepare("SELECT * FROM COURSES ORDER BY COURSEID");
+$result = $query->execute();
 
 $courseCodes = [];
 $courseName = [];
@@ -29,8 +29,8 @@ function generateCourseIDDropdown($name, $options) {
 
 
 //query to get professor names from the database to display them on the webpage
-$profquery = "SELECT * FROM PROFESSORS ORDER BY NAME";
-$profresult = $db->query($profquery);
+$profquery = $db->prepare("SELECT * FROM PROFESSORS ORDER BY NAME");
+$profresult = $profquery->execute();
 
 $profName = [];
 while ($row = $profresult->fetchArray(SQLITE3_ASSOC)) {
@@ -47,8 +47,8 @@ function generateProfNameDropdown($name, $options) {
 }
 
 //query to get semsters from the database to display them on the webpage
-$semquery = "SELECT * FROM SEMESTERS";
-$semresult = $db->query($semquery);
+$semquery = $db->prepare("SELECT * FROM SEMESTERS");
+$semresult = $semquery->execute();
 
 $semName = [];
 while ($row = $semresult->fetchArray(SQLITE3_ASSOC)) {
@@ -65,8 +65,8 @@ function generateSemesterDropdown($name, $options) {
 }
 
 //query to get the assessment focuses from the database to display them on the webpage
-$assessmentquery = "SELECT * FROM FOCUSES";
-$assessmentresult = $db->query($assessmentquery);
+$assessmentquery = $db->prepare("SELECT * FROM FOCUSES");
+$assessmentresult = $assessmentquery->execute();
 
 $assessmentName = [];
 while ($row = $assessmentresult->fetchArray(SQLITE3_ASSOC)) {
@@ -83,8 +83,8 @@ function generateAssessmentDropdown($name, $options) {
 }
 
 //query to get main objectives from database
-$performanceObjectiveQuery = "SELECT name FROM AssessmentObj";
-$performanceObjectiveResult = $db->query($performanceObjectiveQuery);
+$performanceObjectiveQuery = $db->prepare("SELECT name FROM AssessmentObj");
+$performanceObjectiveResult = $performancequery->execute();
 
 $performanceObjective = [];
 while ($row = $performanceObjectiveResult->fetchArray()){
