@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $db = new SQLite3('CSC355.db');
+    $db = new PDO('sqlite:CSC355.db');
 } 
 catch (Exception $exc){
     echo 'Exception: Cannot connect to the database: ', $exc->getMessage(), "\n";
@@ -9,11 +9,11 @@ catch (Exception $exc){
 
 //query to get course ids and course names from the database to display them on the webpage
 $query = $db->prepare("SELECT * FROM COURSES ORDER BY COURSEID");
-$result = $query->execute();
+$query->execute();
 
 $courseCodes = [];
 $courseName = [];
-while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $courseCodes[] = $row['COURSEID'];
     $courseName[] = $row['NAME'];
 }
@@ -30,10 +30,10 @@ function generateCourseIDDropdown($name, $options) {
 
 //query to get professor names from the database to display them on the webpage
 $profquery = $db->prepare("SELECT * FROM PROFESSORS ORDER BY NAME");
-$profresult = $profquery->execute();
+$profquery->execute();
 
 $profName = [];
-while ($row = $profresult->fetchArray(SQLITE3_ASSOC)) {
+while ($row = $profquery->fetch(PDO::FETCH_ASSOC)) {
     $profName[] = $row['NAME'];
 }
 
@@ -48,10 +48,10 @@ function generateProfNameDropdown($name, $options) {
 
 //query to get semsters from the database to display them on the webpage
 $semquery = $db->prepare("SELECT * FROM SEMESTERS");
-$semresult = $semquery->execute();
+$semquery->execute();
 
 $semName = [];
-while ($row = $semresult->fetchArray(SQLITE3_ASSOC)) {
+while ($row = $semquery->fetch(PDO::FETCH_ASSOC)) {
     $semName[] = $row['SEMESTER'];
 }
 
@@ -66,10 +66,10 @@ function generateSemesterDropdown($name, $options) {
 
 //query to get the assessment focuses from the database to display them on the webpage
 $assessmentquery = $db->prepare("SELECT * FROM FOCUSES");
-$assessmentresult = $assessmentquery->execute();
+$assessmentquery->execute();
 
 $assessmentName = [];
-while ($row = $assessmentresult->fetchArray(SQLITE3_ASSOC)) {
+while ($row = $assessmentquery->fetch(PDO::FETCH_ASSOC)) {
     $assessmentName[] = $row['TYPE'];
 }
 
@@ -84,10 +84,10 @@ function generateAssessmentDropdown($name, $options) {
 
 //query to get main objectives from database
 $performanceObjectiveQuery = $db->prepare("SELECT name FROM AssessmentObj");
-$performanceObjectiveResult = $performancequery->execute();
+$performanceObjectiveQuery->execute();
 
 $performanceObjective = [];
-while ($row = $performanceObjectiveResult->fetchArray()){
+while ($row = $performanceObjectiveQuery->fetch(PDO::FETCH_ASSOC)) {
     $performanceObjective[] = $row["name"];
 }
 
@@ -160,7 +160,7 @@ function generateAssessmentObjective($name, $options) {
     <?php echo generateAssessmentDropdown('Assessment', $assessmentName);?><br></br>
 
     <label for="Performance Indicators">Performance Indicators:</label><br>
-         <?php echo generateAssessmentObjective("objective", $performanceObjective)?>
+         <?php echo generateAssessmentObjective("objective[]", $performanceObjective)?>
 
     <label for="numStudents">Number of Students:</label>
     <input type="number" id="numStudents" min="1" required><br><br>
