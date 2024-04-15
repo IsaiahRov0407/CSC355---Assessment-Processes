@@ -1,5 +1,6 @@
 <?php
 
+//connect to the database
 try {
     $db = new PDO('sqlite:CSC355.db');
 } 
@@ -138,8 +139,8 @@ function generateAssessmentObjective($name, $options) {
 </head>
 <body>
 
-<h2></h2>
-
+<h2 style="text-align: center;">Enter Course Information</h2>
+<!--This form is to get information about a class that needs to be evaluated and put into the database-->
 <form id="courseForm" method="POST" action="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Saving.php">
     <label for="courseCode">Course Code:</label>
     <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?><br></br>
@@ -160,7 +161,7 @@ function generateAssessmentObjective($name, $options) {
     <?php echo generateAssessmentDropdown('Assessment', $assessmentName);?><br></br>
 
     <label for="Performance Indicators">Performance Indicators:</label><br>
-         <?php echo generateAssessmentObjective("objective[]", $performanceObjective)?>
+         <?php echo generateAssessmentObjective("objective", $performanceObjective)?>
 
     <label for="numStudents">Number of Students:</label>
     <input type="number" id="numStudents" min="1" required><br><br>
@@ -181,6 +182,7 @@ function generateAssessmentObjective($name, $options) {
   </table>
 </div>
 <script>
+//function to add students to a table
 function addStudents() {
    document.getElementById("button1").style.display = "none";
   document.getElementById("button2").style.display = "initial";
@@ -192,7 +194,7 @@ function addStudents() {
   }
 }
 
-
+//another function to add students?
 function addStudentRow(i) {
   var table = document.getElementById("studentsTable");
   var row = table.insertRow(-1);
@@ -210,7 +212,7 @@ function addStudentRow(i) {
   row.insertCell(2).appendChild(selectElement);
 }
 
-
+//function to display the name of the course related to the course code that was selected
 function updateCourseName() {
     var courseCodeDropdown = document.getElementById('courseCode');
     var courseNameInput = document.getElementById('courseName');
@@ -298,7 +300,7 @@ for (var j = 2; j < 17; j++) {
 
 }*/
 
-
+//function to remove the students from the student table that was created
 function removeStudents() {
   document.getElementById("button1").style.display = "initial";
   document.getElementById("button2").style.display = "none";
@@ -312,6 +314,7 @@ function removeStudents() {
   }
 }
 
+//function to delete all data in the form
 function deleteData() {
 	var confirmation = confirm("Are you sure you want to delete all data?");
 	if (confirmation) {
