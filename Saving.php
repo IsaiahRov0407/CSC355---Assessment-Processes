@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     } else {
         echo "Array data is missing, not an array, or empty.";
     }
-    //$numStudents = $_POST["numStudents"];
+    $numStudents = $_POST["numStudents"];
 }
 
 //change teh array into a string to insert it into the database
@@ -99,9 +99,10 @@ else {
     }
 
     //temporary query to delete all entries added to the database through testing
-    $query2 = "DELETE FROM EVAL";
-    $result3 = $db->query($query2);
+    //$query2 = "DELETE FROM EVAL";
+    //$result3 = $db->query($query2);
     $db = null;
+    header("Location: https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php");
     }
 
 ?>

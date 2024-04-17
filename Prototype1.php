@@ -65,7 +65,7 @@ function generateSemesterDropdown($name, $options) {
 }
 
 //query to get the assessment focuses 
-$assessmentquery = $db->prepare("SELECT * FROM FOCUSES");
+$assessmentquery = $db->prepare("SELECT * FROM FOCUSES ORDER BY TYPE");
 $assessmentquery->execute();
 
 $assessmentName = [];
@@ -152,7 +152,7 @@ function generateAssessmentObjective($name, $options) {
 
 <h2></h2>
 
-<form id="courseForm" method="POST" action="https://unixweb.kutztown.edu/~irove166/CSC355/Saving.php">
+<form id="courseForm" method="POST" action="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Saving.php">
 <div class ="form-container">
     <label for="courseCode">Course Code:</label>
     <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?><br></br>

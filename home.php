@@ -94,7 +94,7 @@
     <div class="navigation">
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="https://unixweb.kutztown.edu/~irove/CSC355/prototype1.php">Enter/Edit Evaluation</a></li>
+            <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php">Enter/Edit Evaluation</a></li>
             <li><a href="#">Performance Indicator Descriptions</a></li>
             <li><a href="https://unixweb.kutztown.edu/~irove/instructions.php">Instructions</a></li>
 			<li><a href="#">Semester View</a></li>
@@ -129,11 +129,26 @@
 		
 			echo "<tr>";
 			foreach ($semesters as $semester) {
-				echo "<td style='height: 700px; background-color: #bbb7bf'></td>";
+                echo "<td style='height: 700px; background-color: #bbb7bf'>";
+                $stmt = $db->prepare("SELECT * FROM EVAL WHERE SEMESTER = :semester");
+                $stmt->bindParam(':semester', $semester);
+                $stmt->execute();
+                echo "<ul>";
+                while ($courseRow = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    if ($courseRow['CourseSection'] != NULL) {
+                        echo "<li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/fullSemester.php?semester=" . urlencode($option) . "'>" . $courseRow['CourseCode'] . "-" . $courseRow['CourseSection'] . " " . $courseRow['Assessment'] . "</a></li>";
+                    }
+                    else{
+                        echo "<li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/fullSemester.php?semester=" . urlencode($option) . "'>" . $courseRow['CourseCode'] . " " . $courseRow['Assessment'] . "</a></li>";
+                    }
+                    echo "</ul>";
 			}
-			echo "</tr>";
+            echo "</ul>";
+            echo "</td>";
+        }
+		echo "</tr>";
 
-			echo "</table>";
+		echo "</table>";
 			?>
         </div>
     </div>
