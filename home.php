@@ -97,6 +97,8 @@
             <li><a href="https://unixweb.kutztown.edu/~irove/CSC355/prototype1.php">Enter/Edit Evaluation</a></li>
             <li><a href="#">Performance Indicator Descriptions</a></li>
             <li><a href="https://unixweb.kutztown.edu/~irove/instructions.php">Instructions</a></li>
+			<li><a href="#">Semester View</a></li>
+			<li><a href="#">Cycle View</a></li>
         </ul>
     </div>
     <div class="content-container">
@@ -118,23 +120,21 @@
             }
 
             echo "<table border='1'>";
-            echo "<tr><th colspan='" . count($semesters) . "'>Semester View</th></tr>";
-            echo "<tr>";
-            foreach ($semesters as $semester) {
-                echo "<th>$semester</th>";
-            }
-            echo "</tr>";
-            $num_rows = 3;
-            for ($i = 0; $i < $num_rows; $i++) {
-                echo "<tr>";
-                echo "<td></td>"; // Placeholder for actions
-                for ($j = 0; $j < count($semesters); $j++) {
-                    echo "<td></td>"; // Empty column
-                }
-                echo "</tr>";
-            }
-            echo "</table>";
-            ?>
+			echo "<tr>";
+			foreach ($semesters as $semester) {
+				echo "<th colspan='1'>$semester</th>";
+			}
+			echo "</tr>";
+
+		
+			echo "<tr>";
+			foreach ($semesters as $semester) {
+				echo "<td style='height: 700px; background-color: #bbb7bf'></td>";
+			}
+			echo "</tr>";
+
+			echo "</table>";
+			?>
         </div>
     </div>
 </body>
