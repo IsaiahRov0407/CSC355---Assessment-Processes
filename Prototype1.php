@@ -146,6 +146,10 @@ function generateAssessmentObjective($name, $options) {
             border: none;
             cursor: pointer;
     }
+	.form-container {
+		text-align: center;
+		color: #67001a;
+	}
 </style>
 </head>
 <body>
@@ -270,5 +274,7 @@ document.querySelectorAll('input[name="Performance_Indicator"]').forEach(functio
         });
 </script>
 
+</body>
+</html>
 </body>
 </html>
