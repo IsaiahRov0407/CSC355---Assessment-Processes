@@ -122,7 +122,7 @@
             echo "<table border='1'>";
 			echo "<tr>";
 			foreach ($semesters as $semester) {
-				echo "<th colspan='1'>$semester</th>";
+				echo "<th colspan='1'><a style = 'color: #ffffff;' href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/fullSemester.php?semester=" . urlencode($semester) . "'>$semester</th>";
 			}
 			echo "</tr>";
 
@@ -136,10 +136,11 @@
                 echo "<ul>";
                 while ($courseRow = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     if ($courseRow['CourseSection'] != NULL) {
-                        echo "<li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/fullSemester.php?semester=" . urlencode($option) . "'>" . $courseRow['CourseCode'] . "-" . $courseRow['CourseSection'] . " " . $courseRow['Assessment'] . "</a></li>";
+                        echo "<li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/fullSemester.php?semester=" . urlencode($semester) . "&code=" . urlencode($courseRow['CourseCode']) . "&sec=" .urlencode($courseRow['CourseSection']) . "'>" . $courseRow['CourseCode'] . "-" . $courseRow['CourseSection'] . " " . $courseRow['Assessment'] . "</a></li><br>";
                     }
                     else{
-                        echo "<li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/fullSemester.php?semester=" . urlencode($option) . "'>" . $courseRow['CourseCode'] . " " . $courseRow['Assessment'] . "</a></li>";
+                        echo "<li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/fullSemester.php?semester=" . urlencode($semester) . "&code=" . urlencode($courseRow['CourseCode']) . "&sec=" .urlencode($courseRow['CourseSection']) . "'>" . $courseRow['CourseCode'] . " " . $courseRow['Assessment'] . "</a></li><br>";
+                        //echo "<li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/fullSemester.php?semester=" . urlencode($semester) . "&code=" . urlencode($courseRow['CourseCode']) . "'>" . $courseRow['CourseCode'] . " " . $courseRow['Assessment'] . "</a></li><br>";
                     }
                     echo "</ul>";
 			}
