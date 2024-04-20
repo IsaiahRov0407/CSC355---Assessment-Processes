@@ -102,7 +102,7 @@ else {
     //$query2 = "DELETE FROM EVAL";
     //$result3 = $db->query($query2);
     $db = null;
-    header("Location: https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php");
+    header("Location: https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/studentEvaluation.php?student=" .urlencode($numStudents));
     }
 
 ?>

@@ -146,10 +146,6 @@ function generateAssessmentObjective($name, $options) {
             border: none;
             cursor: pointer;
     }
-	.form-container {
-		text-align: center;
-		color: #67001a;
-	}
 </style>
 </head>
 <body>
@@ -180,7 +176,7 @@ function generateAssessmentObjective($name, $options) {
          <?php echo generateAssessmentObjective("objective", $performanceObjective)?>
 
     <label for="numStudents">Number of Students:</label>
-    <input type="number" id="numStudents" min="1"><br><br>
+    <input type="number" id="numStudents" name="numStudents" min="1"><br><br>
 
     <button id = "button1" type="button" onclick="addStudents()">Add Students</button>
 	<button id = "button2" type="button" onclick="editStudents()" style= "display: none;">Edit Students</button>
@@ -188,46 +184,8 @@ function generateAssessmentObjective($name, $options) {
 </div> 
 </form>
 
-</div class="table-container" style="color: #67001a;">
-  <table id="studentsTable">
-    <tr id="columnHeaders" style="display: none;">
-      <th>Student Number</th>
-      <th>Major</th>
-      <th>Student Evaluation</th>
-    </tr>
-  </table>
-</div>
 <script>
-function addStudents() {
-   document.getElementById("button1").style.display = "none";
-  document.getElementById("button2").style.display = "initial";
-  document.getElementById("columnHeaders").style.display = "table-row";
-  
-  var numStudentsInput = document.getElementById("numStudents");
-  var numStudents = parseInt(numStudentsInput.value);
-  
-  for (var i = 0; i < numStudents; i++) {
-    addStudentRow(i);
-  }
-}
 
-
-function addStudentRow(i) {
-  var table = document.getElementById("studentsTable");
-  var row = table.insertRow(-1);
-
-  row.insertCell(0).innerHTML = i + 1;
-  row.insertCell(1).innerHTML = "<input type='text' placeholder='Major'>";
-  var selectOptions = ["E (exemplary)", "S (satisfactory)", "D (developing)", "U (unsatisfactory)"];
-  var selectElement = document.createElement("select");
-  for (var j = 0; j < selectOptions.length; j++) {
-    var option = document.createElement("option");
-    option.value = selectOptions[j];
-    option.text = selectOptions[j];
-    selectElement.appendChild(option);
-  }
-  row.insertCell(2).appendChild(selectElement);
-}
 
 
 function updateCourseName() {
@@ -274,7 +232,5 @@ document.querySelectorAll('input[name="Performance_Indicator"]').forEach(functio
         });
 </script>
 
-</body>
-</html>
 </body>
 </html>
