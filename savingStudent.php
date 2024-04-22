@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "Array data is missing, not an array, or empty.";
     }
 }
-var_dump($_POST);
+
 
 //open the database
 try {
@@ -32,14 +32,18 @@ try {
 catch (Exception $exc){
     echo 'Exception: Cannot connect to the database: ', $exc->getMessage(), "\n";
 }
+$query = $db->prepare("SELECT MAX(ID) FROM EVAL");
+$query->execute();
+$id = $query->fetchColumn();
 for ($i = 0; $i < count($studentNum); $i++){
     $num = $studentNum[$i];
     $maj = $major[$i];
-    $evalu = implode(", ", $evaluation);
-    $stmt = $db->prepare("INSERT INTO StudentTable (StudentNumbers, Major, EvaluationScore) VALUES (:studentNum, :major, :evaluation)");    
+    $evalu = implode(', ', $evaluation[$i]);
+    $stmt = $db->prepare("INSERT INTO StudentTable (StudentNumbers, Major, EvaluationScore, ID) VALUES (:studentNum, :major, :evaluation, :id)");    
     $stmt->bindParam(':studentNum', $num);
     $stmt->bindParam(':major', $maj);
     $stmt->bindParam(':evaluation', $evalu);
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
 }
 $query = "SELECT * FROM StudentTable";
@@ -49,6 +53,7 @@ echo "<table border='1'>
                     <th>Student Number</th>
                     <th>Major</th>
                     <th>Evaluations</th>
+                    <th>ID</th>
                 </tr>";
 
         // Iterate over the result set and print out each row
@@ -57,6 +62,7 @@ echo "<table border='1'>
             echo "<td>" . $row['StudentNumbers'] . "</td>";
             echo "<td>" . $row['Major'] . "</td>";
             echo "<td>" . $row['EvaluationScore'] . "</td>";
+            echo "<td>" . $row['ID'] . "</td>";
             echo "</tr>";
     }
 
@@ -69,7 +75,7 @@ echo "<table border='1'>
     //$query2 = "DELETE FROM EVAL";
     //$result3 = $db->query($query2);
     $db = null;
-    //header("Location: https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php");
+    header("Location: https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php");
 
 ?>
 

@@ -47,7 +47,7 @@ function generateStudentTable($separateValues, $students) {
                         $html .= "<td style = 'text-align: center;'><input type='text' name='studentNum[]' value='" . ($i + 1) . "' readonly></td>";
                         $html .= "<td><input type='text' name = 'major[]' placeholder='Major'></td>";
                         foreach ($separateValues as $header) {
-                            $html .= "<td><select name = 'evaluation[]' style = 'width: 100px;'>
+                            $html .= "<td><select name = 'evaluation[$i][]' style = 'width: 100px;'>
                                         <option value='E'>E</option>
                                         <option value='S'>S</option>
                                         <option value='D'>D</option>
@@ -57,6 +57,7 @@ function generateStudentTable($separateValues, $students) {
                         $html .= "</tr>";
                     }
                     $html .= "<button type='submit'>Submit Evaluation Form</button>";
+                    $html .= "<button><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Skip Evaluation</button>";
 
     
 

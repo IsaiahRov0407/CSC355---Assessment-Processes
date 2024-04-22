@@ -93,12 +93,10 @@
     <div class="header"></div>
     <div class="navigation">
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php">Enter/Edit Evaluation</a></li>
+            <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php">Home</a></li>
+            <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php">Enter Evaluation</a></li>
             <li><a href="#">Performance Indicator Descriptions</a></li>
             <li><a href="https://unixweb.kutztown.edu/~irove/instructions.php">Instructions</a></li>
-			<li><a href="#">Semester View</a></li>
-			<li><a href="#">Cycle View</a></li>
         </ul>
     </div>
     <div class="content-container">
