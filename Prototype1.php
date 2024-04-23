@@ -83,19 +83,22 @@ function generateAssessmentDropdown($name, $options) {
 }
 
 //query to get performance indicators 
-$performanceObjectiveQuery = $db->prepare("SELECT name FROM AssessmentObj");
+$performanceObjectiveQuery = $db->prepare("SELECT * FROM AssessmentObj");
 $performanceObjectiveQuery->execute();
 
 $performanceObjective = [];
+$perfObjNames = [];
 while ($row = $performanceObjectiveQuery->fetch(PDO::FETCH_ASSOC)) {
     $performanceObjective[] = $row["name"];
+    $perfObjNames[] = $row["descriptions"];
 }
 
-function generateAssessmentObjective($name, $options) {
+function generateAssessmentObjective($name, $options, $optionTexts) {
   $html = "";
-    foreach ($options as $option) {
+    foreach ($options as $index =>$option) {
+    $optionText = $optionTexts[$index];
       $html .= "<input type='checkbox' name='{$name}[]' value='{$option}' id='{$option}'>";
-      $html .= "<label for='{$option}'>{$option}</label><br>";
+      $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
     }
     return $html;
 }
@@ -230,7 +233,7 @@ function generateAssessmentObjective($name, $options) {
     <?php echo generateAssessmentDropdown('Assessment', $assessmentName);?><br></br>
 
     <label for="Performance Indicators">Performance Indicators:</label><br>
-         <?php echo generateAssessmentObjective("objective", $performanceObjective)?>
+         <?php echo generateAssessmentObjective("objective", $performanceObjective, $perfObjNames)?>
 
     <label for="numStudents">Number of Students:</label>
     <input type="number" id="numStudents" name="numStudents" min="1"><br><br>
