@@ -146,9 +146,66 @@ function generateAssessmentObjective($name, $options) {
             border: none;
             cursor: pointer;
     }
+    .header {
+            background-color: #67001a;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+    }
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        background-color: #ccc;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .navigation ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .navigation li {
+        width: 25%; /* Each navigation link takes up 1/4 of the width */
+    }
+
+    .navigation li a {
+        display: block;
+        color: #67001a;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navigation li a:hover:not(.active) {
+        background-color: #ddd;
+    }
+
+    .active {
+         background-color: #04AA6D;
+    }
 </style>
 </head>
 <body>
+<div class='header'></div>
+    <div class='navigation'>
+        <ul>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
+            <li><a href='#'>Enter Future Evaluations</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
+            <li><a href='#'>Performance Indicator Descriptions</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~irove/instructions.php'>Instructions</a></li>
+        </ul>
+    </div>
 
 <h2></h2>
 
@@ -178,8 +235,6 @@ function generateAssessmentObjective($name, $options) {
     <label for="numStudents">Number of Students:</label>
     <input type="number" id="numStudents" name="numStudents" min="1"><br><br>
 
-    <button id = "button1" type="button" onclick="addStudents()">Add Students</button>
-	<button id = "button2" type="button" onclick="editStudents()" style= "display: none;">Edit Students</button>
   <button type="submit">Submit Evaluation Form</button>
 </div> 
 </form>

@@ -10,6 +10,7 @@ catch (Exception $exc){
     echo 'Exception: Cannot connect to the database: ', $exc->getMessage(), "\n";
 }
 
+
 // Check if the semester parameter is set in the GET data
 if((isset($_GET['semester']) && isset( $_GET['code']) && isset($_GET['sec']))){
     // Retrieve the semester value from the GET data
@@ -41,11 +42,25 @@ if((isset($_GET['semester']) && isset( $_GET['code']) && isset($_GET['sec']))){
     $stmt2->bindParam(':sec', $sec);
     $stmt2->execute();
 
+    echo "<div class='header'></div>
+    <div class='navigation'>
+        <ul>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
+            <li><a href='#'>Enter Future Evaluations</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
+            <li><a href='#'>Enter New Course</a></li>
+            <li><a href='#'>Enter New Performance Indicator</a></li>
+            <li><a href='#'>Performance Indicator Descriptions</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~irove/instructions.php'>Instructions</a></li>
+        </ul>
+    </div>";
+
     // Display the information in a table
     echo "<h1 style = 'text-align: center;'>Information for Course Evaluation</h1>";
     echo "<h2 style = 'text-align: center;'>Semester: $semester</h2>";
     echo "<h2 style = 'text-align: center;'>Course Code: $code</h2>";
-    echo "<div>";
+    echo "<div class='table1'>";
     echo "<table border='1'>
             <tr>
                 <th>Instructor</th>
@@ -130,6 +145,20 @@ elseif (isset($_GET['semester']) && isset($_GET['code']) && (empty($_GET['sec'])
     $stmt->bindParam(':sec', $sec);
     $stmt->execute();
 
+    echo "<div class='header'></div>
+    <div class='navigation'>
+        <ul>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
+            <li><a href='#'>Enter Future Evaluations</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
+            <li><a href='#'>Enter New Course</a></li>
+            <li><a href='#'>Enter New Performance Indicator</a></li>
+            <li><a href='#'>Performance Indicator Descriptions</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~irove/instructions.php'>Instructions</a></li>
+        </ul>
+    </div>";
+
     // Display the information in a table
     echo "<h1 style = 'text-align: center;'>Information for Course Evaluation</h1>";
     echo "<h2 style = 'text-align: center;'>Semester: $semester</h2>";
@@ -165,6 +194,20 @@ elseif (isset($_GET['semester'])) {
     $stmt = $db->prepare("SELECT * FROM EVAL WHERE SEMESTER = :semester");
     $stmt->bindParam(':semester', $semester);
     $stmt->execute();
+
+    echo "<div class='header'></div>
+    <div class='navigation'>
+        <ul>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
+            <li><a href='#'>Enter Future Evaluations</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
+            <li><a href='#'>Performance Indicator Descriptions</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~irove/instructions.php'>Instructions</a></li>
+        </ul>
+    </div>";
 
     // Display the information in a table
     echo "<h1 style = 'text-align: center;'>Information for Course Evaluation</h1>";
@@ -204,7 +247,7 @@ elseif (isset($_GET['semester'])) {
 </head>
 <style>
     table {
-        width: 50%;
+        width: 100%;
         margin: 0 auto;
         border-collapse: collapse;
     }
@@ -213,8 +256,67 @@ elseif (isset($_GET['semester'])) {
         border: 1px solid black;
         text-align: center;
     }
-    div{
+    .table1{
         margin-bottom: 30px;
+    }
+    .navigation {
+            display: flex;
+            justify-content: space-between;
+            background-color: #ccc;
+            overflow: hidden;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .navigation ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            border: 5px solid black;
+        }
+
+        .navigation li {
+            width: 25%; /* Each navigation link takes up 1/4 of the width */
+        }
+
+        .navigation li a {
+            display: block;
+            color: #67001a;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navigation li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+
+
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #67001a;
+    color: white;
+}
+.header {
+            background-color: #67001a;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            border: 5px solid black;
+        }
+    body {
+            background-color: #f0f0f0; /* Change to your desired background color */
     }
 </style>
 <body>
