@@ -49,9 +49,9 @@ if((isset($_GET['semester']) && isset( $_GET['code']) && isset($_GET['sec']))){
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
             <li><a href='#'>Enter Future Evaluations</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
-            <li><a href='#'>Enter New Course</a></li>
-            <li><a href='#'>Enter New Performance Indicator</a></li>
-            <li><a href='#'>Performance Indicator Descriptions</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/PID.php'>Performance Indicator Descriptions</a></li>
             <li><a href='https://unixweb.kutztown.edu/~irove/instructions.php'>Instructions</a></li>
         </ul>
     </div>";
@@ -65,19 +65,19 @@ if((isset($_GET['semester']) && isset( $_GET['code']) && isset($_GET['sec']))){
             <tr>
                 <th>Instructor</th>
                 <th>Course Code</th>
+				<th>Course Section</th>
+				<th>Course Name</th>
                 <th>Semester</th>
                 <th>Assessment</th>
-                <th>Course Name</th>
-                <th>Course Section</th>
             </tr>";
     while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>";
             echo "<td>" . $row['Instructor'] . "</td>";
             echo "<td>" . $row['CourseCode'] . "</td>";
+			echo "<td>" . $row['CourseSection'] . "</td>";
+			echo "<td>" . $row['CourseName'] . "</td>";
             echo "<td>" . $row['Semester'] . "</td>";
             echo "<td>" . $row['Assessment'] . "</td>";
-            echo "<td>" . $row['CourseName'] . "</td>";
-            echo "<td>" . $row['CourseSection'] . "</td>";
             echo "</tr>";
     }
 echo "</table>";
@@ -167,20 +167,20 @@ elseif (isset($_GET['semester']) && isset($_GET['code']) && (empty($_GET['sec'])
             <tr>
                 <th>Instructor</th>
                 <th>Course Code</th>
+				<th>Course Section</th>
+				<th>Course Name</th>
                 <th>Semester</th>
                 <th>Assessment</th>
-                <th>Course Name</th>
-                <th>Course Section</th>
                 <th>Performance Indicators</th>
             </tr>";
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>";
             echo "<td>" . $row['Instructor'] . "</td>";
             echo "<td>" . $row['CourseCode'] . "</td>";
+			echo "<td>" . $row['CourseSection'] . "</td>";
+			echo "<td>" . $row['CourseName'] . "</td>";
             echo "<td>" . $row['Semester'] . "</td>";
             echo "<td>" . $row['Assessment'] . "</td>";
-            echo "<td>" . $row['CourseName'] . "</td>";
-            echo "<td>" . $row['CourseSection'] . "</td>";
             echo "<td>". $row["PerformanceIndicator"] . "</td>";
             echo "</tr>";
     }
@@ -216,20 +216,20 @@ elseif (isset($_GET['semester'])) {
                 <tr>
                     <th>Instructor</th>
                     <th>Course Code</th>
+					<th>Course Section</th>
+					<th>Course Name</th>
                     <th>Semester</th>
                     <th>Assessment</th>
-                    <th>Course Name</th>
-                    <th>Course Section</th>
                     <th>Performance Indicators</th>
                 </tr>";
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>";
             echo "<td>" . $row['Instructor'] . "</td>";
             echo "<td>" . $row['CourseCode'] . "</td>";
+			echo "<td>" . $row['CourseSection'] . "</td>";
+			echo "<td>" . $row['CourseName'] . "</td>";
             echo "<td>" . $row['Semester'] . "</td>";
             echo "<td>" . $row['Assessment'] . "</td>";
-            echo "<td>" . $row['CourseName'] . "</td>";
-            echo "<td>" . $row['CourseSection'] . "</td>";
             echo "<td>". $row["PerformanceIndicator"] . "</td>";
             echo "</tr>";
     }

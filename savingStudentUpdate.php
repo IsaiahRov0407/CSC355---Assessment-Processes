@@ -19,6 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     } else {
         echo "Array data is missing, not an array, or empty.";
     }
+    $courseCode = $_POST["courseCode"];
+    $semester = $_POST["semester"];
+    $courseSec = $_POST["courseSec"];
 }
 
 
@@ -32,7 +35,10 @@ try {
 catch (Exception $exc){
     echo 'Exception: Cannot connect to the database: ', $exc->getMessage(), "\n";
 }
-$query = $db->prepare("SELECT MAX(ID) FROM EVAL");
+$query = $db->prepare("SELECT ID FROM EVAL WHERE CourseCode=:courseCode AND Semester=:semester AND CourseSection=:courseSec");
+$query->bindParam(':courseCode', $courseCode);
+$query->bindParam(':semester', $semester);
+$query->bindParam(':courseSec', $courseSec);
 $query->execute();
 $id = $query->fetchColumn();
 for ($i = 0; $i < count($studentNum); $i++){
@@ -46,29 +52,6 @@ for ($i = 0; $i < count($studentNum); $i++){
     $stmt->bindParam(':id', $id);
     $stmt->execute();
 }
-/*$query = "SELECT * FROM StudentTable";
-$result2 = $db->query($query);
-echo "<table border='1'>
-                <tr>
-                    <th>Student Number</th>
-                    <th>Major</th>
-                    <th>Evaluations</th>
-                    <th>ID</th>
-                </tr>";
-
-        // Iterate over the result set and print out each row
-        while ($row = $result2->fetch(PDO::FETCH_ASSOC)) {
-            echo "<tr>";
-            echo "<td>" . $row['StudentNumbers'] . "</td>";
-            echo "<td>" . $row['Major'] . "</td>";
-            echo "<td>" . $row['EvaluationScore'] . "</td>";
-            echo "<td>" . $row['ID'] . "</td>";
-            echo "</tr>";
-    }*/
-
-
-
-
 
 
     //temporary query to delete all entries added to the database through testing
