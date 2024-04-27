@@ -92,133 +92,117 @@ function generateAssessmentDropdown($name, $options) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Course Registration</title>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-		color: #67001a;
-    }
-	table-container{
-		color: #67001a;	
-	}
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-    }
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-    th {
-        background-color: #7e0303;
-        color: white;
-    }
-	.table-container {
-		width: 800px;
-		overflow-x: auto;
-		margin: 0 auto;
-	}
-    .sub-checkbox {
-      margin-left: 20px;
-    }
-  
-    .form-container button {
-            background-color: #67001a;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-    }
-    .header {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ddd; 
+        }
+
+        .form-container {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white; 
+        }
+
+        .header {
             background-color: #67001a;
             color: white;
             padding: 10px 0;
             text-align: center;
-    }
+        }
 
-    .navigation {
-        display: flex;
-        justify-content: space-between;
-        background-color: #ccc;
-        overflow: hidden;
-        width: 100%;
-    }
+        .navigation {
+            background-color: #ccc;
+            overflow: hidden;
+        }
 
-    .navigation ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        overflow: hidden;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
+        .navigation ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
 
-    .navigation li {
-        width: 25%; /* Each navigation link takes up 1/4 of the width */
-    }
+        .navigation li {
+            width: 12.52%;
+        }
 
-    .navigation li a {
-        display: block;
-        color: #67001a;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
+        .navigation li a {
+            display: block;
+            color: #67001a;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
 
-    .navigation li a:hover:not(.active) {
-        background-color: #ddd;
-    }
+        .navigation li a:hover:not(.active) {
+            background-color: #ddd;
+        }
 
-    .active {
-         background-color: #04AA6D;
-    }
-</style>
+        .active {
+            background-color: #04AA6D;
+        }
+    </style>
 </head>
 <body>
 <div class='header'></div>
-    <div class='navigation'>
-        <ul>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterFutureEvaluation.php'>Enter Future Evaluations</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Future Evaluations</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/PID.php'>Performance Indicator Descriptions</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~irove/instructions.php'>Instructions</a></li>
-        </ul>
-    </div>
+<div class='navigation'>
+    <ul>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterFutureEvaluation.php'>Enter Future Evaluations</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Evaluation</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/PID.php'>Performance Indicator Descriptions</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/instructions.php'>Instructions</a></li>
+    </ul>
+</div>
 
 <h2></h2>
 
 <form id="courseForm" method="POST" action="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/saving2.php">
-<div class ="form-container">
-    <label for="courseCode">Course Code:</label>
-    <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?><br></br>
+<div class ="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="form-container">
+                <div class="mb-3">
+                    <label for="courseCode" class="form-label">Course Code:</label>
+                    <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?><br></br>
+                
+                    <label for="courseName" class="form-label">Course Name:</label>
+                    <input type="text" class="form-control" id="courseName" name="courseName" required readonly size="45"><br><br>
+                
+                
+                    <label for="semester" class="form-label">Semester:</label>
+                    <?php echo generateSemesterDropdown('Semester', $semName);?><br><br>
+                
 
-    <label for="courseName">Course Name:</label>
-    <input type="text" id="courseName" name="courseName" required readonly size="45"><br><br>
+                    <label for="type" class="form-label">Type of Assessment:</label>
+                    <?php echo generateAssessmentDropdown('Assessment', $assessmentName);?><br></br>
+                
 
-    <label for="semester">Semester:</label>
-    <?php echo generateSemesterDropdown('Semester', $semName);?><br><br>
+                
+                    <label for="Performance Indicators" class="form-label">Performance Indicators:</label><br>
+                    <?php echo generateAssessmentObjective("objective", $performanceObjective, $perfObjNames) ?>
+                
+                </div>
 
-    <label for="type">Type of Assessment:</label>
-    <?php echo generateAssessmentDropdown('Assessment', $assessmentName);?><br></br>
-
-    <label for="Performance Indicators">Performance Indicators:</label><br>
-         <?php echo generateAssessmentObjective("objective", $performanceObjective, $perfObjNames)?>
-
-    
-
-  <button type="submit">Submit Evaluation Form</button>
-</div> 
+                <button type="submit" class="btn btn-primary">Submit Evaluation Form</button>
+                <button type="button" class="btn btn-secondary" onclick="backToHomepage()">Back to Homepage</button>
+            </div>
+        </div>
+    </div>
+</div>
 </form>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 
 

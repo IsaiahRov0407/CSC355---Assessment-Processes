@@ -7,7 +7,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #ddd;
             text-align: center;
             color: #67001a;
         }
@@ -89,14 +89,14 @@
     </style>
 </head>
 <body>
-    <h1 class="burgundy-text">Course Evaluator</h1>
+    <h1 class="burgundy-text">Department Assessment System</h1>
     <div class="header"></div>
     <div class="navigation">
         <ul>
             <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php">Home</a></li>
             <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php">Enter Evaluation</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterFutureEvaluation.php'>Enter Future Evaluations</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Evaluation</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Future Evaluations</a></li>
             <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php">Enter New Professor</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>

@@ -75,45 +75,57 @@ echo generateStudentTable($separateValues, $students);
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Course Registration</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
+    body {
+        background-color: #ddd;
+        color: #67001a;
+    }
+
     table {
         border-collapse: collapse;
         width: 100%;
-		color: #67001a;
     }
-	table-container{
-		color: #67001a;	
-	}
+
     th, td {
         border: 1px solid black;
         padding: 8px;
         text-align: left;
     }
+
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+
     th {
         background-color: #7e0303;
         color: white;
     }
-	.table-container {
-		width: 800px;
-		overflow-x: auto;
-		margin: 0 auto;
-	}
+
+    .table-container {
+        width: 800px;
+        overflow-x: auto;
+        margin: 0 auto;
+    }
+
     .sub-checkbox {
-      margin-left: 20px;
+        margin-left: 20px;
     }
-  
+
     .form-container button {
-            background-color: #67001a;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
+        background-color: #67001a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
     }
+
     p {
         text-align: right;
     }
 </style>
 </head>
+<body>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</html>

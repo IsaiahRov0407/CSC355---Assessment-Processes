@@ -15,13 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $semester = $_POST["semester"];
     $courseSec = $_POST["courseSec"];
     $professor = $_POST["professor"];
-    $assessment= $_POST["assessment"];
     $numStudents = $_POST["numStudents"];
 }
-$update = $db->prepare("UPDATE EVAL SET CourseSection=:courseSec, Instructor=:professor, Assessment=:assessment WHERE CourseCode=:courseCode AND Semester=:semester");
+$update = $db->prepare("UPDATE EVAL SET CourseSection=:courseSec, Instructor=:professor WHERE CourseCode=:courseCode AND Semester=:semester");
 $update->bindParam(":courseSec", $courseSec);
 $update->bindParam("professor", $professor);
-$update->bindParam(":assessment", $assessment);
 $update->bindParam(":courseCode", $courseCode);
 $update->bindParam(":semester", $semester);
 $update->execute();

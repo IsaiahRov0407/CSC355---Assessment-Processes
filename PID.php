@@ -13,14 +13,15 @@ $BigObj1Query->execute();
 $BigObj1 = [];
 $perfObjNames = [];
 while ($row = $BigObj1Query->fetch(PDO::FETCH_ASSOC)) {
-    $BigObj1[] = $row[Obj];
-    $BigObj1Desc[] = $row[Description];
+    $BigObj1[] = $row['Obj'];
+    $BigObj1Desc[] = $row['Description'];
 }
 function generateBigObj1($name, $options, $optionTexts) {
   $html = "";
     foreach ($options as $index =>$option) {
     $optionText = $optionTexts[$index];
-      $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
+      $html .= "<label style = 'font-weight: bold; font-size: 18px;' for='{$option}'>{$option}</label><br><br>";
+      $html .= "<div style='margin-left: 20px; font-weight: bold; font-size: 18px;'>{$optionText}</div><br><br>";
     }
     return $html;
 }
@@ -54,14 +55,15 @@ $BigObj2Query->execute();
 $BigObj2 = [];
 $perfObjNames = [];
 while ($row = $BigObj2Query->fetch(PDO::FETCH_ASSOC)) {
-    $BigObj2[] = $row[Obj];
-    $BigObj2Desc[] = $row[Description];
+    $BigObj2[] = $row['Obj'];
+    $BigObj2Desc[] = $row['Description'];
 }
 function generateBigObj2($name, $options, $optionTexts) {
   $html = "";
     foreach ($options as $index =>$option) {
     $optionText = $optionTexts[$index];
-      $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
+        $html .= "<label style = 'font-weight: bold; font-size: 18px;' for='{$option}'>{$option}</label><br><br>";
+        $html .= "<div style='margin-left: 20px; font-weight: bold; font-size: 18px;'>{$optionText}</div><br><br>";
     }
     return $html;
 }
@@ -94,14 +96,15 @@ $BigObj3Query->execute();
 $BigObj3 = [];
 $perfObjNames = [];
 while ($row = $BigObj3Query->fetch(PDO::FETCH_ASSOC)) {
-    $BigObj3[] = $row[Obj];
-    $BigObj3Desc[] = $row[Description];
+    $BigObj3[] = $row['Obj'];
+    $BigObj3Desc[] = $row['Description'];
 }
 function generateBigObj3($name, $options, $optionTexts) {
   $html = "";
     foreach ($options as $index =>$option) {
     $optionText = $optionTexts[$index];
-      $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
+        $html .= "<label style = 'font-weight: bold; font-size: 18px;' for='{$option}'>{$option}</label><br><br>";
+        $html .= "<div style='margin-left: 20px; font-weight: bold; font-size: 18px;'>{$optionText}</div><br><br>";
     }
     return $html;
 }
@@ -133,14 +136,15 @@ $BigObj4Query->execute();
 $BigObj4 = [];
 $perfObjNames = [];
 while ($row = $BigObj4Query->fetch(PDO::FETCH_ASSOC)) {
-    $BigObj4[] = $row[Obj];
-    $BigObj4Desc[] = $row[Description];
+    $BigObj4[] = $row['Obj'];
+    $BigObj4Desc[] = $row['Description'];
 }
 function generateBigObj4($name, $options, $optionTexts) {
   $html = "";
     foreach ($options as $index =>$option) {
     $optionText = $optionTexts[$index];
-      $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
+        $html .= "<label style = 'font-weight: bold; font-size: 18px;' for='{$option}'>{$option}</label><br><br>";
+        $html .= "<div style='margin-left: 20px; font-weight: bold; font-size: 18px;'>{$optionText}</div><br><br>";
     }
     return $html;
 }
@@ -172,14 +176,15 @@ $BigObj5Query->execute();
 $BigObj5 = [];
 $perfObjNames = [];
 while ($row = $BigObj5Query->fetch(PDO::FETCH_ASSOC)) {
-    $BigObj5[] = $row[Obj];
-    $BigObj5Desc[] = $row[Description];
+    $BigObj5[] = $row['Obj'];
+    $BigObj5Desc[] = $row['Description'];
 }
 function generateBigObj5($name, $options, $optionTexts) {
   $html = "";
     foreach ($options as $index =>$option) {
     $optionText = $optionTexts[$index];
-      $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
+        $html .= "<label style = 'font-weight: bold; font-size: 18px;' for='{$option}'>{$option}</label><br><br>";
+        $html .= "<div style='margin-left: 20px; font-weight: bold; font-size: 18px;'>{$optionText}</div><br><br>";
     }
     return $html;
 }
@@ -211,14 +216,15 @@ $BigObj6Query->execute();
 $BigObj6 = [];
 $perfObjNames = [];
 while ($row = $BigObj6Query->fetch(PDO::FETCH_ASSOC)) {
-    $BigObj6[] = $row[Obj];
-    $BigObj6Desc[] = $row[Description];
+    $BigObj6[] = $row['Obj'];
+    $BigObj6Desc[] = $row['Description'];
 }
 function generateBigObj6($name, $options, $optionTexts) {
   $html = "";
     foreach ($options as $index =>$option) {
     $optionText = $optionTexts[$index];
-      $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
+        $html .= "<label style = 'font-weight: bold; font-size: 18px;' for='{$option}'>{$option}</label><br><br>";
+        $html .= "<div style='margin-left: 20px; font-weight: bold; font-size: 18px;'>{$optionText}</div><br><br>";
     }
     return $html;
 }
@@ -251,14 +257,15 @@ $BigObj7Query->execute();
 $BigObj7 = [];
 $perfObjNames = [];
 while ($row = $BigObj7Query->fetch(PDO::FETCH_ASSOC)) {
-    $BigObj7[] = $row[Obj];
-    $BigObj7Desc[] = $row[Description];
+    $BigObj7[] = $row['Obj'];
+    $BigObj7Desc[] = $row['Description'];
 }
 function generateBigObj7($name, $options, $optionTexts) {
   $html = "";
     foreach ($options as $index =>$option) {
     $optionText = $optionTexts[$index];
-      $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
+        $html .= "<label style = 'font-weight: bold; font-size: 18px;' for='{$option}'>{$option}</label><br><br>";
+        $html .= "<div style='margin-left: 20px; font-weight: bold; font-size: 18px;'>{$optionText}</div><br><br>";
     }
     return $html;
 }
@@ -285,13 +292,13 @@ function generateSubObj7($names, $descriptions, $options, $optionTexts) {
     return $html;
 }
 //Query to get GD Objectives
-$BigObj8Query = $db->prepare("SELECT * FROM  BigObj WHERE Obj LIKE 'GD-%'");
+/*$BigObj8Query = $db->prepare("SELECT * FROM  BigObj WHERE Obj LIKE 'GD-%'");
 $BigObj8Query->execute();
 $BigObj8 = [];
 $perfObjNames = [];
 while ($row = $BigObj8Query->fetch(PDO::FETCH_ASSOC)) {
-    $BigObj8[] = $row[Obj];
-    $BigObj8Desc[] = $row[Description];
+    $BigObj8[] = $row['Obj'];
+    $BigObj8Desc[] = $row['Description'];
 }
 function generateBigObj8($name, $options, $optionTexts) {
   $html = "";
@@ -300,7 +307,7 @@ function generateBigObj8($name, $options, $optionTexts) {
       $html .= "<label for='{$option}'>{$option} {$optionText}</label><br><br>";
     }
     return $html;
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -390,6 +397,11 @@ function generateBigObj8($name, $options, $optionTexts) {
     .active {
          background-color: #04AA6D;
     }
+    .horizontal-line{
+        width: 100%;
+        height: 2px; 
+        background-color: black;
+    }
 </style>
 </head>
 <body>
@@ -398,11 +410,12 @@ function generateBigObj8($name, $options, $optionTexts) {
         <ul>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
-            <li><a href='#'>Enter Future Evaluations</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterFutureEvaluation.php'>Enter Future Evaluations</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Future Evaluations</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
-            <li><a href='#'>Performance Indicator Descriptions</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/PID.php'>Performance Indicator Descriptions</a></li>
             <li><a href='https://unixweb.kutztown.edu/~irove/instructions.php'>Instructions</a></li>
         </ul>
     </div>
@@ -411,23 +424,28 @@ function generateBigObj8($name, $options, $optionTexts) {
 
 <form id="courseForm" method="POST" action="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Saving.php">
 <div class ="form-container">
-   
-    <label for="Performance Indicators">Performance Indicators: </label><br>
+
          <?php echo generateBigObj1("objective", $BigObj1, $BigObj1Desc)?>
 		 <?php echo generateSubObj1($subObj1, $subObj1Desc, $subObj1,$perfObjNames); ?>
+         <div class="horizontal-line"></div>
 		 <?php echo generateBigObj2("objective", $BigObj2, $BigObj2Desc)?>
 		 <?php echo generateSubObj2($subObj2, $subObj2Desc, $subObj2,$perfObjNames); ?>
+         <div class="horizontal-line"></div>
 		 <?php echo generateBigObj3("objective", $BigObj3, $BigObj3Desc)?>
 		 <?php echo generateSubObj3($subObj3, $subObj3Desc, $subObj3,$perfObjNames); ?>
+         <div class="horizontal-line"></div>
 		 <?php echo generateBigObj4("objective", $BigObj4, $BigObj4Desc)?>
 		 <?php echo generateSubObj4($subObj4, $subObj4Desc, $subObj4,$perfObjNames); ?>
+         <div class="horizontal-line"></div>
 		 <?php echo generateBigObj5("objective", $BigObj5, $BigObj5Desc)?>
 		 <?php echo generateSubObj5($subObj5, $subObj5Desc, $subObj5,$perfObjNames); ?>
+         <div class="horizontal-line"></div>
 		 <?php echo generateBigObj6("objective", $BigObj6, $BigObj6Desc)?>
 		 <?php echo generateSubObj6($subObj6, $subObj6Desc, $subObj6,$perfObjNames); ?>
+         <div class="horizontal-line"></div>
 		 <?php echo generateBigObj7("objective", $BigObj7, $BigObj7Desc)?>
 		 <?php echo generateSubObj7($subObj7, $subObj7Desc, $subObj7,$perfObjNames); ?>
-		 <?php echo generateBigObj8("objective", $BigObj8, $BigObj8Desc)?>
+		 
 </div> 
 </form>
 

@@ -33,8 +33,12 @@ function generateCourseIDDropdown($name, $options) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edit Evaluation</title>
-</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
+    body {
+        background-color: #ddd;
+    }
+
     .navigation {
         display: flex;
         justify-content: space-between;
@@ -72,7 +76,16 @@ function generateCourseIDDropdown($name, $options) {
     .active {
          background-color: #04AA6D;
     }
+
+    /* Custom styling for the container */
+    .container-box {
+        background-color: #fff; /* White background */
+        border-radius: 10px; /* Rounded corners */
+        padding: 20px; /* Padding inside the box */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
 </style>
+</head>
 <body>
 <div class='header'></div>
     <div class='navigation'>
@@ -85,42 +98,53 @@ function generateCourseIDDropdown($name, $options) {
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
             <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/PID.php'>Performance Indicator Descriptions</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~irove/instructions.php'>Instructions</a></li>
+            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/instructions.php'>Instructions</a></li>
         </ul>
     </div>
-    <h1>Edit Evaluations</h1>
-    <h2>Enter the Course Data you Want to Modify</h2>
-    <form style = "text-align: center;" id="profForm" method="POST" action='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/changeEvaluation.php'>
-    <label for="courseCode">Course Code:</label>
-    <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?><br><br>
-    <label for="semester">Semester:</label>
-    <input type="text" id="semester" name="semester" required readonly size="20"><br><br>
-    <label for="courseSec">Course Section (if known):</label>
-    <input type="text" id="courseSec" name="courseSec"  size="10"><br><br>
-    <button type="submit">Submit</button>
-    </form>
-
+    <div class="container mt-5">
+        <div class="container-box"> <!-- Add container-box class -->
+            <h1>Edit Evaluations</h1>
+            <h2>Enter the Course Data you Want to Modify</h2>
+            <form class="text-center" id="profForm" method="POST" action='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/changeEvaluation.php'>
+                <div class="mb-3">
+                    <label for="courseCode" class="form-label">Course Code:</label>
+                    <?php echo generateCourseIDDropdown('courseCode', $courseCodes);?>
+                </div>
+                <div class="mb-3">
+                    <label for="semester" class="form-label">Semester:</label>
+                    <input type="text" id="semester" name="semester" required readonly class="form-control" size="20">
+                </div>
+                <div class="mb-3">
+                    <label for="courseSec" class="form-label">Course Section (if known):</label>
+                    <input type="text" id="courseSec" name="courseSec" class="form-control" size="10">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
 </body>
 <script>
-        function backToHomepage(){
-            window.location.href = "https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php";
-        }
-        function updateSemester() {
-            var courseCodeDropdown = document.getElementById('courseCode');
-            var semesterInput = document.getElementById('semester');
-            var selectedCourseCode = courseCodeDropdown.value;
+function backToHomepage(){
+    window.location.href = "https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php";
+}
 
-            var courseCodes = <?php echo json_encode($courseCodes); ?>;
-            var semesterData = <?php echo json_encode($semester); ?>;
+function updateSemester() {
+    var courseCodeDropdown = document.getElementById('courseCode');
+    var semesterInput = document.getElementById('semester');
+    var selectedCourseCode = courseCodeDropdown.value;
 
-            // Find the index of the selected course code
-            var index = courseCodes.indexOf(selectedCourseCode);
+    var courseCodes = <?php echo json_encode($courseCodes); ?>;
+    var semesterData = <?php echo json_encode($semester); ?>;
 
-            if (index !== -1) {
-                semesterInput.value = semesterData[index];
-            } else {
-                semesterInput.value = ''; 
-            }
-        }
+    // Find the index of the selected course code
+    var index = courseCodes.indexOf(selectedCourseCode);
+
+    if (index !== -1) {
+        semesterInput.value = semesterData[index];
+    } else {
+        semesterInput.value = ''; 
+    }
+}
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </html>
