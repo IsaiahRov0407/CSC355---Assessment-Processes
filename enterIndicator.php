@@ -11,11 +11,14 @@ catch (Exception $exc){
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $indicatorName = $_POST["newIndicator"];
+	$indicatorDesc = $_POST["newDesc"];
 }
 
-if($indicatorName != NULL){
+if($indicatorName && $indicatorDesc != NULL){
 $query = $db->prepare("INSERT INTO AssessmentObj (name) VALUES (:indicatorName)");
+$query = $db->prepare("INSERT INTO AssessmentObj (descriptions) VALUES (:indicatorDesc)");
 $query->bindParam(":indicatorName", $indicatorName);
+$query->bindParam(":indicatorDesc", $indicatorDesc);
 $query->execute();
 echo "<script>window.alert('Data has been submitted successfully.');</script>";
 echo "<script>window.location.href = 'https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'</script>";
@@ -57,6 +60,10 @@ echo "<script>window.location.href = 'https://unixweb.kutztown.edu/~dclea255/Cou
                     <div class="mb-3">
                         <label for="newIndicator" class="form-label">Enter New Indicator:</label>
                         <input type="text" class="form-control" id="newIndicator" name="newIndicator" required size="45">
+                    </div>
+					<div class="mb-3">
+                        <label for="newDesc" class="form-label">Enter New Description:</label>
+                        <input type="text" class="form-control" id="newDesc" name="newDesc" required size="45">
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
