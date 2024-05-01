@@ -165,6 +165,34 @@ function generateAssessmentObjective($name, $options, $optionTexts) {
         .active {
             background-color: #04AA6D;
         }
+        .dropbtn {
+    display: block;
+    color: #67001a;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
     </style>
 </head>
 <body>
@@ -174,10 +202,11 @@ function generateAssessmentObjective($name, $options, $optionTexts) {
         <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
         <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
         <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterFutureEvaluation.php'>Enter Future Evaluations</a></li>
-        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Evaluation</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Future Evaluations</a></li>
         <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
         <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
         <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Reports.php' class='dropbtn'>Reports</a></li>
         <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/PID.php'>Performance Indicator Descriptions</a></li>
         <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/instructions.php'>Instructions</a></li>
     </ul>
@@ -226,7 +255,6 @@ function generateAssessmentObjective($name, $options, $optionTexts) {
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit Evaluation Form</button>
-                <button type="button" class="btn btn-secondary" onclick="backToHomepage()">Back to Homepage</button>
             </div>
         </div>
     </div>

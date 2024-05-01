@@ -34,7 +34,7 @@ catch (Exception $exc){
 $dupcheck = $db->prepare("SELECT COUNT(*) FROM EVAL WHERE CourseCode = :courseCode AND Semester = :semester AND CourseSection = :courseSection");
 $dupcheck->bindParam(':courseCode', $courseCode);
 $dupcheck->bindParam(':semester', $semester);
-$dupcheck->bindParam(':courseCode', $courseCode);
+$dupcheck->bindParam(':courseSection', $courseSection);
 $dupcheck->execute();
 $count = $dupcheck->fetchColumn();
 
@@ -63,40 +63,7 @@ else {
         echo "Error: " . $stmt->errorInfo()[2];
     }
 
-    //query to get all data that has been entered in the database
-    $query = "SELECT * FROM EVAL";
-    $result2 = $db->query($query);
-
-    //print the data from the database int a table format
-    if ($result2) {
-        echo "<table border='1'>
-                <tr>
-                    <th>Instructor</th>
-                    <th>Course Code</th>
-                    <th>Semester</th>
-                    <th>Assessment</th>
-                    <th>Course Name</th>
-                    <th>Course Section</th>
-                    <th>Performance Indicators</th>
-                </tr>";
-
-        // Iterate over the result set and print out each row
-        while ($row = $result2->fetch(PDO::FETCH_ASSOC)) {
-            echo "<tr>";
-            echo "<td>" . $row['Instructor'] . "</td>";
-            echo "<td>" . $row['CourseCode'] . "</td>";
-            echo "<td>" . $row['Semester'] . "</td>";
-            echo "<td>" . $row['Assessment'] . "</td>";
-            echo "<td>" . $row['CourseName'] . "</td>";
-            echo "<td>" . $row['CourseSection'] . "</td>";
-            echo "<td>". $row["PerformanceIndicator"] . "</td>";
-            echo "</tr>";
-    }
-
-        echo "</table>";
-    } else {
-        echo "No data available";
-    }
+    
 
     //temporary query to delete all entries added to the database through testing
     //$query2 = "DELETE FROM EVAL";

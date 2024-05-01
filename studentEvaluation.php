@@ -57,7 +57,6 @@ function generateStudentTable($separateValues, $students) {
                         $html .= "</tr>";
                     }
                     $html .= "<button type='submit'>Submit Evaluation Form</button>";
-                    $html .= "<button><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Skip Evaluation</button>";
 
     
 

@@ -57,16 +57,8 @@
             background-color: #04AA6D;
         }
 
-        .content-container {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .table-container {
-            display: inline-block;
-            text-align: center; 
-			width: 80%;
-			margin-top: 100px;
+        .content-container{
+            margin: 20px;
         }
 
         table {
@@ -85,25 +77,55 @@
             background-color: #67001a;
             color: white;
         }
+        .dropbtn {
+    display: block;
+    color: #67001a;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
     </style>
 </head>
 <body>
     <h1 class="burgundy-text">Department Assessment System</h1>
     <div class="header"></div>
-    <div class="navigation">
-        <ul>
-            <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php">Home</a></li>
-            <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php">Enter Evaluation</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterFutureEvaluation.php'>Enter Future Evaluations</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Future Evaluations</a></li>
-            <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php">Enter New Professor</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
-            <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
-            <li><a href="https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/PID.php">Performance Indicator Descriptions</a></li>
-            <li><a href="https://unixweb.kutztown.edu/~irove/instructions.php">Instructions</a></li>
-        </ul>
-    </div>
+    <div class='navigation'>
+    <ul>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'>Home</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Prototype1.php'>Enter Evaluation</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterFutureEvaluation.php'>Enter Future Evaluations</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/editEvaluation.php'>Edit Future Evaluations</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterProf.php'>Enter New Professor</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterCourse.php'>Enter New Course</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/enterIndicator.php'>Enter New Performance Indicator</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/Reports.php' class="dropbtn">Reports</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/delete.php'>Delete Evaluation</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/PID.php'>Performance Indicator Descriptions</a></li>
+        <li><a href='https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/instructions.php'>Instructions</a></li>
+    </ul>
+</div>
     <div class="content-container">
         <div class="table-container">
             <?php

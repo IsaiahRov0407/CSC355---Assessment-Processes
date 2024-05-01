@@ -15,13 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 if($indicatorName && $indicatorDesc != NULL){
-$query = $db->prepare("INSERT INTO AssessmentObj (name) VALUES (:indicatorName)");
-$query = $db->prepare("INSERT INTO AssessmentObj (descriptions) VALUES (:indicatorDesc)");
-$query->bindParam(":indicatorName", $indicatorName);
-$query->bindParam(":indicatorDesc", $indicatorDesc);
-$query->execute();
-echo "<script>window.alert('Data has been submitted successfully.');</script>";
-echo "<script>window.location.href = 'https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'</script>";
+    $query = $db->prepare("INSERT INTO AssessmentObj (name, descriptions) VALUES (:indicatorName, :indicatorDesc)");
+
+    $query->bindParam(":indicatorName", $indicatorName);
+    $query->bindParam(":indicatorDesc", $indicatorDesc);
+    $query->execute();
+    echo "<script>window.alert('Data has been submitted successfully.');</script>";
+    echo "<script>window.location.href = 'https://unixweb.kutztown.edu/~dclea255/CourseEvaluator/home.php'</script>";
 }
 
 
